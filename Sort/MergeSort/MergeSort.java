@@ -3,10 +3,6 @@ import java.util.Arrays;
 class MergeSort 
 {
     
-    private static void printArray(int[] array) {
-        System.out.println(Arrays.toString(array));
-   }
-   
     private int[] createSubArray(int[] array, int leftIndex, int rightIndex, int subArrayLength) {
         int[] subArray = new int[subArrayLength];
         for (int i = 0; i < subArray.length; i ++) {
@@ -73,6 +69,6 @@ class MergeSort
         }
         MergeSort mergeObject = new MergeSort();
         mergeObject.mergeSort(array, 0, array.length - 1);
-        printArray(array);
+        System.out.println(Arrays.toString(array));
     }
 }
