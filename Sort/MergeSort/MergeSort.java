@@ -28,21 +28,21 @@ class MergeSort
         int[] leftSubArray = createSubArray(array, leftIndex, middleIndex, middleIndex - leftIndex + 1);
         int[] rightSubArray = createSubArray(array, middleIndex + 1, rightIndex, rightIndex - middleIndex);
         //Merge the two sub arrays and update the parent array
-        int leftArrayIndex = 0, rightArrayIndex = 0, arrayIndex = leftIndex;
-        while ((leftArrayIndex < leftSubArray.length) && (rightArrayIndex < rightSubArray.length)) {
-            if (leftSubArray[leftArrayIndex] <= rightSubArray[rightArrayIndex]) {
-                array[arrayIndex] = leftSubArray[leftArrayIndex];
-                leftArrayIndex ++;
+        int i = 0, j = 0, arrayIndex = leftIndex;
+        while ((i < leftSubArray.length) && (j < rightSubArray.length)) {
+            if (leftSubArray[i] <= rightSubArray[j]) {
+                array[arrayIndex] = leftSubArray[i];
+                i ++;
             }
             else {
-                array[arrayIndex] = rightSubArray[rightArrayIndex];
-                rightArrayIndex ++;
+                array[arrayIndex] = rightSubArray[j];
+                j ++;
             }
             arrayIndex ++;
         }
         //If there are any remaining elements in the subarrays, append to end of parent array
-        appendRemaining(leftSubArray, leftArrayIndex, array, arrayIndex);
-        appendRemaining(rightSubArray, rightArrayIndex, array, arrayIndex);
+        appendRemaining(leftSubArray, i, array, arrayIndex);
+        appendRemaining(rightSubArray, j, array, arrayIndex);
     }
 
 
