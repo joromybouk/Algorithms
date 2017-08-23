@@ -10,7 +10,6 @@ class Node {
 		left = null;
 		right = null;
 	}
-
 }
 
 public class BinaryTree {
