@@ -20,9 +20,9 @@ public class BinaryTree {
 	}
 
     public Node getSuccesssorNode(Node deleteNode) {
+        Node currentNode = deleteNode.right;
         Node successsorNode = null;
 		Node successsorParentNode = null;
-		Node currentNode = deleteNode.right;
         // iterate till the node to replace the deleted node is found
         // this node is the smallest (furthest left) of the right side of the node to be deleted
         while (currentNode != null) {
@@ -30,11 +30,11 @@ public class BinaryTree {
 			successsorNode = currentNode;
 			currentNode = currentNode.left;
         }
-        //If node to be sucessor node has a node to it's right, the sucessor's parent
+        //If node to be sucessor has a node to it's right, the sucessor's parent
         //will replace the successor on it's left with this node
-        if (successsorNode.right != deleteNode.right) {
-            successsorParentNode.left = successsorParentNode.right;
-            successsorNode.left = deleteNode.right;
+        if (successsorNode != deleteNode.right) {
+            successsorParentNode.left = successsorNode.right;
+            successsorNode.right = deleteNode.right;
         }
         return successsorNode;
     }
