@@ -58,7 +58,7 @@ public class Input {
         while(!options.contains(input)) {
             input = sc.nextLine();
         }
-        String message = "\n\nEnter quit to exit program\ninsert x will insert an integer x into the binary tree\nfind x will return whether integer x is in the tree\ndelete x will return whether integer x was deleted from the tree\nprint will display the values of each level of the tree\nclear will clear the binary tree\n\n";
+        String message = "\n\nEnter quit to exit program\ninsert x will insert an integer x into the data structure\nfind x will return whether integer x is in the data structure\ndelete x will return whether integer x was deleted from the data structure\nprint will display the data structure\nclear will clear the data structure\n\n";
         switch(input) {
             case "BinaryTree":
                 BinaryTreeInput(sc, input, message);
