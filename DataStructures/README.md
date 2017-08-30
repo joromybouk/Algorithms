@@ -1,19 +1,8 @@
 Compile data structure files with:
 
-javac -d . *.java ./BinaryTree/*.java LinkedList/*.java
+javac -d . &ast;.java ./BinaryTree/&ast;.java LinkedList/&ast;.java
 
-Run:
+You will then be able to choose which data structure you want to utilize by running: java Input, and then following the instructions.
 
-java Input
-
-You will then be able to choose which data structure you want to use and be able to run the following commands:
-
-insert
-
-find
-
-delete
-
-print
-
-clear
+Options currently are:
+Linked List, Binary Search Tree
