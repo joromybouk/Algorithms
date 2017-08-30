@@ -1,23 +1,26 @@
-package binaryst;
+package ds;
+import java.util.*;
 
-class Node {
-    int data;
-	Node left;
-	Node right;	
 
-	public Node(int data){
-		this.data = data;
-		left = null;
-		right = null;
-	}
-}
 
 public class BinaryTree {
+    class Node {
+        int data;
+        Node left;
+        Node right;	
+
+        private Node(int data){
+            this.data = data;
+            left = null;
+            right = null;
+        }
+    }
+    
     public static Node root;
 
-	public BinaryTree(){
-		this.root = null;
-	}
+    public BinaryTree(){
+        this.root = null;
+    }
 
     public Node getSuccesssorNode(Node deleteNode) {
         Node currentNode = deleteNode.right;
@@ -144,6 +147,37 @@ public class BinaryTree {
                 currentNode = currentNode.right;
             }
         }
+    }
+
+    public static void print() {
+        if (root == null) {
+            System.out.println("No information to print");
+            return;
+        }
+        List<Node> currentLevel = new ArrayList<Node>();
+        currentLevel.add(root);
+        printTreeLevels(currentLevel);
+    }
+
+    public static void printTreeLevels(List<Node> currentLevel) {
+        if (currentLevel.size() == 0) {
+            return;
+        }
+        List<Node> nextLevel = new ArrayList<Node>();
+        Node currentNode;
+        while (currentLevel.size() > 0) {
+            currentNode = currentLevel.get(0);
+            System.out.print(currentNode.data + " ");
+            if (currentNode.left != null) {
+                nextLevel.add(currentNode.left);
+            }
+            if (currentNode.right != null) {
+                nextLevel.add(currentNode.right);
+            }
+            currentLevel.remove(0);
+        }
+        System.out.println("");
+        printTreeLevels(nextLevel);
     }
 
     public static void main(String args[]) {
