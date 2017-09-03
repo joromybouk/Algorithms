@@ -3,7 +3,24 @@ import java.util.Arrays;
 class BubbleSort
 {
 
-    void bubbleSort(int[] array) {
+    int bubbleSort(int[] array) {
+        boolean swapped = true;
+        int count = 0;
+        //keep iterating until no more swaps occur
+        while(swapped) {
+            swapped = false;
+            count++;
+            for (int i = 0; i < array.length-1; i ++) {
+                //if next element is smaller, swap
+                if (array[i+1] < array[i]) {
+                    int temp = array[i];
+                    array[i] = array[i+1];
+                    array[i+1] = temp;
+                    swapped = true;
+                }
+            }
+        }
+        return count;
     }
 
     public static void main(String args[]) {
@@ -22,7 +39,8 @@ class BubbleSort
         }
 
         BubbleSort bubbleObject = new BubbleSort();
-        bubbleObject.bubbleSort(array);
+        int numberOfIterations = bubbleObject.bubbleSort(array);
         System.out.println(Arrays.toString(array));
+        System.out.println("Number of iterations requried = " + numberOfIterations);
     }
 }
