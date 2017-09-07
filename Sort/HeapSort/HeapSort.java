@@ -31,13 +31,15 @@ class HeapSort {
         }
     }
     private void heapSort(int[] array, int n) {
-        //Create heap
+        //Create max heap, starting from center element of array and decrement
+        //This way the top element of the heap at the end of the loop will be the max
+        //We do not need to iterate through the right half of the array as they are the leaves of the tree
         for (int i = n/2 - 1; i >= 0; i--) {
             heap(array, n, i);
         }
         // Iterate through each element and remove from heap
         for (int i = n-1; i >= 0; i--) {
-            // Move current root ie, first in array, to end of array
+            // Move current root ie, first in array and so the max value in the heap, to end of array
             int temp = array[0];
             array[0] = array[i];
             array[i] = temp;
